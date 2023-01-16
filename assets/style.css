@@ -23,7 +23,7 @@ html::-webkit-scrollbar{
 }
 
 /* ===== Home ===== */
-.title, .junior-text{
+.title-text, .junior-text{
   color: var(--main-color);
   font-family: 'Moon Dance', cursive;
   font-family: 'Righteous', cursive;
@@ -93,6 +93,21 @@ html::-webkit-scrollbar{
     height: 250px;
 }
 
+/* ======== Featured Projects ========= */
+.BTN:hover{
+  background-color: var(--main-color);
+}
+
+.project-slider-img{
+  display: block;
+  width: 100%;
+  height: 215px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+  color: red;
+}
 /*======== Contact Start ========*/
 .contact {
   padding-bottom: 130px;
@@ -129,30 +144,6 @@ html::-webkit-scrollbar{
 
 .contact .info .email p {
   padding-top: 5px;
-}
-
-.contact .info .social-links {
-  padding-left: 60px;
-}
-
-.contact .info .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  margin-right: 10px;
-}
-
-.contact .info .social-links a:hover {
-  background: var(--red-color);
-  color: #fff;
 }
 
 .contact .info .information:hover i{
@@ -201,7 +192,6 @@ html::-webkit-scrollbar{
 }
 
 /* ==== Footer ==== */
-/* .footer-text{
-  font-family: 'Cutive Mono', monospace;
-  font-family: 'Moon Dance', cursive;
-} */
+.footer-text{
+  font-size: 14px;
+}
