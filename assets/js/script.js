@@ -3,7 +3,6 @@ AOS.init({
     duration: 1800,
 });
 
-// About Me
 // Number auto increase animation
 $(window).scroll(testScroll);
 var viewed = false;
