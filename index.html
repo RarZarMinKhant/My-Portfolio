@@ -1,166 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rar Zar's Portfolio</title>
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Rar Zar Min Khant" />
-    <meta
-      name="description"
-      content="I'm Rar Zar Min Khant.Full-Stack web developer and Co-Founder of Learn Router"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rar Zar's Portfolio</title>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Rar Zar Min Khant" />
-    <meta
-      property="og:description"
-      content="I'm Rar Zar Min Khant.Full-Stack web developer and Co-Founder of Learn Router"
-    />
-    <meta
-      property="og:image"
-      content="./assets/images/projects/portfolio/img1.png"
-    />
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Rar Zar Min Khant" />
+  <meta name="description" content="I'm Rar Zar Min Khant.Full-Stack web developer and Co-Founder of Learn Router" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Rar Zar Min Khant" />
-    <meta
-      property="twitter:description"
-      content="I'm Rar Zar Min Khant.Full-Stack web developer and Co-Founder of Learn Router"
-    />
-    <meta
-      property="twitter:image"
-      content="./assets/images/projects/portfolio/img1.png"
-    />
-    <meta name="theme-color" id="theme" content="#DC4C64" />
-    <script>
-      function renderComponent(componentName) {
-        const url = componentMap[componentName];
-        if (!url) {
-          return;
-        }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rar Zar Min Khant" />
+  <meta property="og:description"
+    content="I'm Rar Zar Min Khant.Full-Stack web developer and Co-Founder of Learn Router" />
+  <meta property="og:image" content="./assets/images/projects/portfolio/img1.png" />
 
-        fetch(url)
-          .then((response) => response.text())
-          .then((html) => {
-            let componentHTML = html;
-            document.getElementById(componentName).innerHTML = componentHTML;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Rar Zar Min Khant" />
+  <meta property="twitter:description"
+    content="I'm Rar Zar Min Khant.Full-Stack web developer and Co-Founder of Learn Router" />
+  <meta property="twitter:image" content="./assets/images/projects/portfolio/img1.png" />
+  <meta name="theme-color" id="theme" content="#DC4C64" />
+
+
+  <script>
+    const renderComponent = async (componentName) => {
+      const url = componentMap[componentName];
+      if (!url) return;
+
+      try {
+        const response = await fetch(url);
+        const html = await response.text();
+        document.getElementById(componentName).innerHTML = html;
+      } catch (error) {
+        console.log(error);
       }
+    };
 
-      const componentMap = {
-        Hero: "./assets/components/hero.html",
-        Skill: "./assets/components/skill.html",
-        Services: "./assets/components/service.html",
-        Projects: "./assets/components/projects.html",
-        Freelancer: "./assets/components/freelancer.html",
-        Contact: "./assets/components/contact.html",
-        Footer: "./assets/components/footer.html",
-      };
+    const componentMap = {
+      Hero: "./assets/components/hero.html",
+      Skill: "./assets/components/skill.html",
+      Services: "./assets/components/service.html",
+      Projects: "./assets/components/projects.html",
+      Freelancer: "./assets/components/freelancer.html",
+      Contact: "./assets/components/contact.html",
+      Footer: "./assets/components/footer.html",
+    };
 
-      renderComponent("Hero");
-      renderComponent("Skill");
-      renderComponent("Services");
-      renderComponent("Projects");
-      renderComponent("Freelancer");
-      renderComponent("Contact");
-      renderComponent("Footer");
-    </script>
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
-      rel="stylesheet"
-    />
-    <!-- Custom Css -->
-    <link rel="stylesheet" href="./assets/style.css" />
-    <!-- Aos animation css -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  </head>
+    // Render all components
+    Object.keys(componentMap).forEach((componentName) => {
+      renderComponent(componentName);
+    });
+  </script>
 
-  <body class="bg-light">
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">
-          <img src="./assets/images/logo.png" width="56" />
-        </a>
-        <span class="fs-3 me-5 title-text">Rar's Portfolio</span>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link text-danger active" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="#skill">About & Skill</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="#service">Service</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="#projects">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/style.css" />
+  <!-- Aos animation css -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="./assets/images/logo.png" width="56" />
+      </a>
+      <span class="fs-3 me-5 title-text">Rar's Portfolio</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-danger active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="#skill">About & Skill</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="#service">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="#contact">Contact</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <div id="particles-js"></div>
-    <div id="Hero"></div>
-    <div id="Skill"></div>
-    <div id="Services"></div>
-    <div id="Projects"></div>
-    <div id="Freelancer"></div>
-    <div id="Contact"></div>
-    <div id="Footer"></div>
-  </body>
-  <!-- Bootstrap Js-->
-  <script
-    src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js "
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa "
-    crossorigin="anonymous "
-  ></script>
-  <!-- AOS animation Js -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- jQuery js file -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <!-- Custom js file -->
-  <script src="./assets/js/script.js"></script>
-  <!-- particles js -->
-  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="./assets/js/particles.js"></script>
+  <div id="particles-js"></div>
+  <div id="Hero"></div>
+  <div id="Skill"></div>
+  <div id="Services"></div>
+  <div id="Projects"></div>
+  <div id="Freelancer"></div>
+  <div id="Contact"></div>
+  <div id="Footer"></div>
+</body>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js "
+  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa "
+  crossorigin="anonymous "></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+  integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./assets/js/script.js"></script>
+<!-- particles js -->
+<script src="./assets/js/particles.js"></script>
 </html>
