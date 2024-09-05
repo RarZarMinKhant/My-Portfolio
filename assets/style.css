@@ -106,20 +106,23 @@ html::-webkit-scrollbar{
 }
 
 /* ======== Featured Projects ========= */
-.BTN:hover{
-  background-color: var(--main-color);
+.nav-pills .active{
+  color: white !important;
+  background-color: var(--main-color) !important;
 }
 
 .project-slider-img{
   display: block;
   width: 100%;
   height: 215px;
+  object-fit: cover;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon{
   color: red;
 }
+
 /*======== Contact Start ========*/
 .contact {
   padding-bottom: 130px;
